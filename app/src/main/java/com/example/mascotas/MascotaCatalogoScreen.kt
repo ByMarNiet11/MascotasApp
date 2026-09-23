@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -14,12 +15,18 @@ import androidx.compose.ui.unit.dp
 fun MascotaCatalogoScreen(
     lista: List<Mascota>,
     onMascotaSelect: (Mascota) -> Unit,
+    onVolverHomeClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text("Catálogo de Mascotas") },
+                navigationIcon = {
+                    TextButton(onClick = onVolverHomeClick) {
+                        Text("← Inicio", fontWeight = FontWeight.Bold)
+                    }
+                },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
@@ -52,7 +59,8 @@ fun MascotaCatalogoScreenPreview() {
     MaterialTheme {
         MascotaCatalogoScreen(
             lista = listaMascotasDummy,
-            onMascotaSelect = {}
+            onMascotaSelect = {},
+            onVolverHomeClick = {}
         )
     }
 }

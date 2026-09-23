@@ -37,6 +37,9 @@ fun MascotaScreen(
                     mascotaSeleccionada = mascota
                     pantallaActual = PantallaMascota.DETALLE
                 },
+                onVolverHomeClick = {
+                    pantallaActual = PantallaMascota.HOME
+                },
                 modifier = modifier
             )
         }
